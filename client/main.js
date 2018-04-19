@@ -8,6 +8,8 @@ import {Reservations} from "../imports/api/reservations.js";
 
 // Some helper functions created to make life easier later on.
 // Checks if an object is empty.  Returns true if the object is empty, false otherwise.
+
+var currentRoom = 101
 function isEmpty(obj) {
     for(var key in obj) {
         if(obj.hasOwnProperty(key))
@@ -215,10 +217,65 @@ Template.reservationPage.events({
 
 Template.roomSelectPage.events({
   'click #room101': function() {
+    currentRoom = 101
     console.log("101 clicked!");
     Router.go("/reservationPage")
   }
 });
 
+Template.roomSelectPage.events({
+  'click #room102': function() {
+    currentRoom = 102
+    console.log("102 clicked!");
+    Router.go("/reservationPage")
+  }
+});
 
+Template.roomSelectPage.events({
+  'click #room103': function() {
+    currentRoom = 103
+    console.log("103 clicked!");
+    Router.go("/reservationPage")
+  }
+});
+
+Template.roomSelectPage.events({
+  'click #room104': function() {
+    currentRoom = 104
+    console.log("104 clicked!");
+    Router.go("/reservationPage")
+  }
+})
+
+;Template.roomSelectPage.events({
+  'click #room105': function() {
+    currentRoom = 105
+    console.log("105 clicked!");
+    Router.go("/reservationPage")
+  }
+});
+
+Template.roomSelectPage.events({
+  'click #room106': function() {
+    currentRoom = 106
+    console.log("106 clicked!");
+    Router.go("/reservationPage")
+  }
+});
+
+Template.roomSelectPage.events({
+  'click #room107': function() {
+    currentRoom = 107
+    console.log("107 clicked!");
+    Router.go("/reservationPage")
+  }
+});
+
+Template.roomSelectPage.events({
+  'click #room108': function() {
+    currentRoom = 108
+    console.log("108 clicked!");
+    Router.go("/reservationPage")
+  }
+});
 
