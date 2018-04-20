@@ -119,7 +119,7 @@ Template.startEndSelectors.events({
     }
 });
 
-// Sets the feedback message initially to be "all fields must be completed."
+// Sets the feedback message initially to be "all fields must be completed." ////////////////////////////////////////////// Feedback Message Variable ////////////////
 Template.makeReservationBox.onCreated(function(){
 	this.eventFeedbackMsg = new ReactiveVar("All fields must be complete");
 });
@@ -128,8 +128,28 @@ Template.makeReservationBox.onCreated(function(){
 Template.makeReservationBox.helpers({
   eventFeedbackMsg: function() {
 	return Template.instance().eventFeedbackMsg.get();  },	
-  checkIfInUse: function() {
-	return false;
+
+  checkIfInUse: function() {/////////////////////////////////////////////////////////////////////////////////////////////// CHECK IF IN USE FUNCTION /////////////////
+	     var startMonth = $('#startMonthDropdown').val();
+       var startDay = parseInt($('#startDayDropdown').val());
+       var startTime = $('#startTimeDropdown').val();
+       
+       var endMonth = $('#endMonthDropdown').val();
+       var endDay = parseInt($('#endDayDropdown').val());
+       var endTime = $('#endTimeDropdown').val();
+
+       var startTimeString = startMonth.toString() + " " + startDay.toString() + ", 2018 " + startTime.toString().substring(0,2) + ":" + startTime.toString().substring(2,4) + ":00";
+       var reservationStart = new Date(startTimeString);
+
+       var endTimeString = endMonth.toString() + " " + endDay.toString() + ", 2018 " + endTime.toString().substring(0,2) + ":" + endTime.toString().substring(2,4) + ":00";
+       var reservationEnd = new Date(endTimeString);
+
+       //          if (reservationStart >= reservationEnd) {j
+      // Returning false or true
+      //         var res = Reservations.find({room: currentRoom}, { sort: { reservationStart: 1 }}).fetch();
+      // for (i=1; i<=28; i++) {
+      // MongoDB call: db.reservations.find({room: 102})[0] gives the first instance in the collection with room 102
+
   }
 });
 
@@ -145,6 +165,7 @@ Template.makeReservationBox.events({
        var endMonth = $('#endMonthDropdown').val();
        var endDay = parseInt($('#endDayDropdown').val());
        var endTime = $('#endTimeDropdown').val();
+
        
       // Validate they have filled out all the boxes
       if (eventDescription == "") {
@@ -183,7 +204,7 @@ Template.makeReservationBox.events({
            // TODO: Confirm new event is not overlapping with any existing events.
            // TODO: Confirm existing events do not overlap with new events.
            // TODO: support 8 total rooms, instead of hard coding room 101 into the database. 
-           Meteor.call("insertEvent", eventDescription, reservationStart, reservationEnd, 101);
+           Meteor.call("insertEvent", eventDescription, reservationStart, reservationEnd, currentRoom);
 		   template.eventFeedbackMsg.set("Event entered successfully");
 		 template.find('.eventFeedback').style.color="#44ff22";
 
@@ -197,7 +218,105 @@ Template.makeReservationBox.events({
 Template.upcomingReservations.helpers({
     reservations : function() {
         // TODO: Show events only for the selected room, not events for all rooms.
-        var res = Reservations.find({}, { sort: { reservationStart: 1 }}).fetch();
+        var res = Reservations.find({room: currentRoom}, { sort: { reservationStart: 1 }}).fetch();
+
+        if (res.length > 5) {
+            return res.slice(0,5);
+        }
+        else {
+            return res;
+        }
+    }
+});
+
+Template.upcomingReservations2.helpers({
+    reservations : function() {
+        // TODO: Show events only for the selected room, not events for all rooms.
+        var res = Reservations.find({room: currentRoom}, { sort: { reservationStart: 1 }}).fetch();
+
+        if (res.length > 5) {
+            return res.slice(0,5);
+        }
+        else {
+            return res;
+        }
+    }
+});
+
+Template.upcomingReservations3.helpers({
+    reservations : function() {
+        // TODO: Show events only for the selected room, not events for all rooms.
+        var res = Reservations.find({room: currentRoom}, { sort: { reservationStart: 1 }}).fetch();
+
+        if (res.length > 5) {
+            return res.slice(0,5);
+        }
+        else {
+            return res;
+        }
+    }
+});
+
+Template.upcomingReservations4.helpers({
+    reservations : function() {
+        // TODO: Show events only for the selected room, not events for all rooms.
+        var res = Reservations.find({room: currentRoom}, { sort: { reservationStart: 1 }}).fetch();
+
+        if (res.length > 5) {
+            return res.slice(0,5);
+        }
+        else {
+            return res;
+        }
+    }
+});
+
+Template.upcomingReservations5.helpers({
+    reservations : function() {
+        // TODO: Show events only for the selected room, not events for all rooms.
+        var res = Reservations.find({room: currentRoom}, { sort: { reservationStart: 1 }}).fetch();
+
+        if (res.length > 5) {
+            return res.slice(0,5);
+        }
+        else {
+            return res;
+        }
+    }
+});
+
+Template.upcomingReservations6.helpers({
+    reservations : function() {
+        // TODO: Show events only for the selected room, not events for all rooms.
+        var res = Reservations.find({room: currentRoom}, { sort: { reservationStart: 1 }}).fetch();
+
+        if (res.length > 5) {
+            return res.slice(0,5);
+        }
+        else {
+            return res;
+        }
+    }
+});
+
+Template.upcomingReservations7.helpers({
+    reservations : function() {
+        // TODO: Show events only for the selected room, not events for all rooms.
+        var res = Reservations.find({room: currentRoom}, { sort: { reservationStart: 1 }}).fetch();
+
+        if (res.length > 5) {
+            return res.slice(0,5);
+        }
+        else {
+            return res;
+        }
+    }
+});
+
+Template.upcomingReservations8.helpers({
+    reservations : function() {
+        // TODO: Show events only for the selected room, not events for all rooms.
+        var res = Reservations.find({room: currentRoom}, { sort: { reservationStart: 1 }}).fetch();
 
         if (res.length > 5) {
             return res.slice(0,5);
@@ -215,6 +334,54 @@ Template.reservationPage.events({
     }       
 });
 
+Template.reservationPage2.events({
+   "click #backButton2" : function() {
+       console.log("back button clicked");
+       Router.go("/")
+    }       
+});
+
+Template.reservationPage3.events({
+   "click #backButton3" : function() {
+       console.log("back button clicked");
+       Router.go("/")
+    }       
+});
+
+Template.reservationPage4.events({
+   "click #backButton4" : function() {
+       console.log("back button clicked");
+       Router.go("/")
+    }       
+});
+
+Template.reservationPage5.events({
+   "click #backButton5" : function() {
+       console.log("back button clicked");
+       Router.go("/")
+    }       
+});
+
+Template.reservationPage6.events({
+   "click #backButton6" : function() {
+       console.log("back button clicked");
+       Router.go("/")
+    }       
+});
+
+Template.reservationPage7.events({
+   "click #backButton7" : function() {
+       console.log("back button clicked");
+       Router.go("/")
+    }       
+});
+
+Template.reservationPage8.events({
+   "click #backButton8" : function() {
+       console.log("back button clicked");
+       Router.go("/")
+    }       
+});
 Template.roomSelectPage.events({
   'click #room101': function() {
     currentRoom = 101
@@ -227,7 +394,7 @@ Template.roomSelectPage.events({
   'click #room102': function() {
     currentRoom = 102
     console.log("102 clicked!");
-    Router.go("/reservationPage")
+    Router.go("/reservationPage2")
   }
 });
 
@@ -235,7 +402,7 @@ Template.roomSelectPage.events({
   'click #room103': function() {
     currentRoom = 103
     console.log("103 clicked!");
-    Router.go("/reservationPage")
+    Router.go("/reservationPage3")
   }
 });
 
@@ -243,7 +410,7 @@ Template.roomSelectPage.events({
   'click #room104': function() {
     currentRoom = 104
     console.log("104 clicked!");
-    Router.go("/reservationPage")
+    Router.go("/reservationPage4")
   }
 })
 
@@ -251,7 +418,7 @@ Template.roomSelectPage.events({
   'click #room105': function() {
     currentRoom = 105
     console.log("105 clicked!");
-    Router.go("/reservationPage")
+    Router.go("/reservationPage5")
   }
 });
 
@@ -259,7 +426,7 @@ Template.roomSelectPage.events({
   'click #room106': function() {
     currentRoom = 106
     console.log("106 clicked!");
-    Router.go("/reservationPage")
+    Router.go("/reservationPage6")
   }
 });
 
@@ -267,7 +434,7 @@ Template.roomSelectPage.events({
   'click #room107': function() {
     currentRoom = 107
     console.log("107 clicked!");
-    Router.go("/reservationPage")
+    Router.go("/reservationPage7")
   }
 });
 
@@ -275,7 +442,7 @@ Template.roomSelectPage.events({
   'click #room108': function() {
     currentRoom = 108
     console.log("108 clicked!");
-    Router.go("/reservationPage")
+    Router.go("/reservationPage8")
   }
 });
 

@@ -50,6 +50,181 @@
     <br>
 </template>
 
+<template name="reservationPage2">
+  <div class="content">
+    {{> upcomingReservations2}}
+    {{> makeReservationBox }}
+    <button id="backButton2">Go back to room select</button>
+  </div>
+</template>
+
+<template name="upcomingReservations2"> <!-- ~~~~~~~~~~~~ NEED TO CHANGE THE NUMBER THAT APPEARS ON THE PAGE ~~~~~~ -->
+    <h1 class="header"> Room 102 </h1>
+    <p>Logged is as: {{> loginButtons}} </p>
+    <table>
+    <tr>
+      <th>Start Time </th>
+      <th>End Time </th>
+      <th>Name </th>
+      <th>Event Description </th>
+    </tr>
+        {{#each reservations}}
+            {{> eventLine}}
+        {{/each}}
+    </table>
+    <br>
+</template>
+
+<template name="reservationPage3">
+  <div class="content">
+    {{> upcomingReservations3}}
+    {{> makeReservationBox }}
+    <button id="backButton3">Go back to room select</button>
+  </div>
+</template>
+
+<template name="upcomingReservations3"> <!-- ~~~~~~~~~~~~ NEED TO CHANGE THE NUMBER THAT APPEARS ON THE PAGE ~~~~~~ -->
+    <h1 class="header"> Room 103 </h1>
+    <p>Logged is as: {{> loginButtons}} </p>
+    <table>
+    <tr>
+      <th>Start Time </th>
+      <th>End Time </th>
+      <th>Name </th>
+      <th>Event Description </th>
+    </tr>
+        {{#each reservations}}
+            {{> eventLine}}
+        {{/each}}
+    </table>
+    <br>
+</template>
+
+<template name="reservationPage4">
+  <div class="content">
+    {{> upcomingReservations4}}
+    {{> makeReservationBox }}
+    <button id="backButton4">Go back to room select</button>
+  </div>
+</template>
+
+<template name="upcomingReservations4"> <!-- ~~~~~~~~~~~~ NEED TO CHANGE THE NUMBER THAT APPEARS ON THE PAGE ~~~~~~ -->
+    <h1 class="header"> Room 104 </h1>
+    <p>Logged is as: {{> loginButtons}} </p>
+    <table>
+    <tr>
+      <th>Start Time </th>
+      <th>End Time </th>
+      <th>Name </th>
+      <th>Event Description </th>
+    </tr>
+        {{#each reservations}}
+            {{> eventLine}}
+        {{/each}}
+    </table>
+    <br>
+</template>
+
+<template name="reservationPage5">
+  <div class="content">
+    {{> upcomingReservations5}}
+    {{> makeReservationBox }}
+    <button id="backButton5">Go back to room select</button>
+  </div>
+</template>
+
+<template name="upcomingReservations5"> <!-- ~~~~~~~~~~~~ NEED TO CHANGE THE NUMBER THAT APPEARS ON THE PAGE ~~~~~~ -->
+    <h1 class="header"> Room 105 </h1>
+    <p>Logged is as: {{> loginButtons}} </p>
+    <table>
+    <tr>
+      <th>Start Time </th>
+      <th>End Time </th>
+      <th>Name </th>
+      <th>Event Description </th>
+    </tr>
+        {{#each reservations}}
+            {{> eventLine}}
+        {{/each}}
+    </table>
+    <br>
+</template>
+
+<template name="reservationPage6">
+  <div class="content">
+    {{> upcomingReservations6}}
+    {{> makeReservationBox }}
+    <button id="backButton6">Go back to room select</button>
+  </div>
+</template>
+
+<template name="upcomingReservations6"> <!-- ~~~~~~~~~~~~ NEED TO CHANGE THE NUMBER THAT APPEARS ON THE PAGE ~~~~~~ -->
+    <h1 class="header"> Room 106 </h1>
+    <p>Logged is as: {{> loginButtons}} </p>
+    <table>
+    <tr>
+      <th>Start Time </th>
+      <th>End Time </th>
+      <th>Name </th>
+      <th>Event Description </th>
+    </tr>
+        {{#each reservations}}
+            {{> eventLine}}
+        {{/each}}
+    </table>
+    <br>
+</template>
+
+<template name="reservationPage7">
+  <div class="content">
+    {{> upcomingReservations7}}
+    {{> makeReservationBox }}
+    <button id="backButton7">Go back to room select</button>
+  </div>
+</template>
+
+<template name="upcomingReservations7"> <!-- ~~~~~~~~~~~~ NEED TO CHANGE THE NUMBER THAT APPEARS ON THE PAGE ~~~~~~ -->
+    <h1 class="header"> Room 107 </h1>
+    <p>Logged is as: {{> loginButtons}} </p>
+    <table>
+    <tr>
+      <th>Start Time </th>
+      <th>End Time </th>
+      <th>Name </th>
+      <th>Event Description </th>
+    </tr>
+        {{#each reservations}}
+            {{> eventLine}}
+        {{/each}}
+    </table>
+    <br>
+</template>
+
+<template name="reservationPage8">
+  <div class="content">
+    {{> upcomingReservations8}}
+    {{> makeReservationBox }}
+    <button id="backButton8">Go back to room select</button>
+  </div>
+</template>
+
+<template name="upcomingReservations8"> <!-- ~~~~~~~~~~~~ NEED TO CHANGE THE NUMBER THAT APPEARS ON THE PAGE ~~~~~~ -->
+    <h1 class="header"> Room 108 </h1>
+    <p>Logged is as: {{> loginButtons}} </p>
+    <table>
+    <tr>
+      <th>Start Time </th>
+      <th>End Time </th>
+      <th>Name </th>
+      <th>Event Description </th>
+    </tr>
+        {{#each reservations}}
+            {{> eventLine}}
+        {{/each}}
+    </table>
+    <br>
+</template>
+
 <template name="eventLine">
   <tr>
     <td> {{reservationStart}} </td>
