@@ -129,7 +129,9 @@ Template.makeReservationBox.helpers({
   eventFeedbackMsg: function() {
 	return Template.instance().eventFeedbackMsg.get();  },	
 
-  checkIfInUse: function() {/////////////////////////////////////////////////////////////////////////////////////////////// CHECK IF IN USE FUNCTION /////////////////
+  });
+
+  function checkIfInUse() { /////////////////////////////////////////////////////////////////////////////////////////////// CHECK IF IN USE FUNCTION /////////////////
 	     var startMonth = $('#startMonthDropdown').val();
        var startDay = parseInt($('#startDayDropdown').val());
        var startTime = $('#startTimeDropdown').val();
@@ -144,14 +146,45 @@ Template.makeReservationBox.helpers({
        var endTimeString = endMonth.toString() + " " + endDay.toString() + ", 2018 " + endTime.toString().substring(0,2) + ":" + endTime.toString().substring(2,4) + ":00";
        var reservationEnd = new Date(endTimeString);
 
+       var res = Reservations.find({room: currentRoom}).fetch();
+       // console.log(Reservations.find({room: currentRoom})[0]);
+       var ans = false;
+       // var len = Reservations.find({room: currentRoom}).fetch()[0];
+       // console.log(len.reservationStart);
+
+       // console.log(reservationStart);
+
+       // if (Reservations.find({room: currentRoom}).fetch().length > 0) {
+       //         console.log(Reservations.find({room: currentRoom}).fetch()[0].reservationStart);
+
+       // if (reservationStart < Reservations.find({room: currentRoom}).fetch()[0].reservationStart) {
+       //  console.log("The start is sooner than the one already here");
+       // }};
+
+       for (i=0; i< res.length; i++) {
+        if (reservationStart < res[i].reservationEnd && reservationEnd > res[i].reservationStart) {
+          ans = true;
+        }
+        }
+        return ans;
+
+      // Reservations.find({room: currentRoom}).forEach( function(myDoc) { 
+      //   if (reservationStart == myDoc.reservationEnd || reservationEnd == myDoc.reservationStart) {
+      //     ans = true;
+      //   }});
+      // console.log(ans.toString());
+      // return ans;
+
+      //        console.log("It's inside the checkIfInUse function");
+      // return true;
        //          if (reservationStart >= reservationEnd) {j
       // Returning false or true
       //         var res = Reservations.find({room: currentRoom}, { sort: { reservationStart: 1 }}).fetch();
       // for (i=1; i<=28; i++) {
       // MongoDB call: db.reservations.find({room: 102})[0] gives the first instance in the collection with room 102
-
+      // var res = Reservations.find({room: currentRoom}, { sort: { reservationStart: 1 }}).fetch();
   }
-});
+
 
 // Logic for the form.  Ensures all fields have been filled out.  Ensures the start date is before the end date.
 Template.makeReservationBox.events({
@@ -196,7 +229,7 @@ Template.makeReservationBox.events({
 		   template.eventFeedbackMsg.set("End date must be after start date");
 		 template.find('.eventFeedback').style.color="#ff4444";
          }
-         else if (template.checkIfInUse){
+         else if (checkIfInUse()){
 		   template.eventFeedbackMsg.set("Room is in use at this time");
 		 template.find('.eventFeedback').style.color="#ff4444";
          }
