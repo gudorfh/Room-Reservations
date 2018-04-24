@@ -147,19 +147,7 @@ Template.makeReservationBox.helpers({
        var reservationEnd = new Date(endTimeString);
 
        var res = Reservations.find({room: currentRoom}).fetch();
-       // console.log(Reservations.find({room: currentRoom})[0]);
        var ans = false;
-       // var len = Reservations.find({room: currentRoom}).fetch()[0];
-       // console.log(len.reservationStart);
-
-       // console.log(reservationStart);
-
-       // if (Reservations.find({room: currentRoom}).fetch().length > 0) {
-       //         console.log(Reservations.find({room: currentRoom}).fetch()[0].reservationStart);
-
-       // if (reservationStart < Reservations.find({room: currentRoom}).fetch()[0].reservationStart) {
-       //  console.log("The start is sooner than the one already here");
-       // }};
 
        for (i=0; i< res.length; i++) {
         if (reservationStart < res[i].reservationEnd && reservationEnd > res[i].reservationStart) {
@@ -167,22 +155,6 @@ Template.makeReservationBox.helpers({
         }
         }
         return ans;
-
-      // Reservations.find({room: currentRoom}).forEach( function(myDoc) { 
-      //   if (reservationStart == myDoc.reservationEnd || reservationEnd == myDoc.reservationStart) {
-      //     ans = true;
-      //   }});
-      // console.log(ans.toString());
-      // return ans;
-
-      //        console.log("It's inside the checkIfInUse function");
-      // return true;
-       //          if (reservationStart >= reservationEnd) {j
-      // Returning false or true
-      //         var res = Reservations.find({room: currentRoom}, { sort: { reservationStart: 1 }}).fetch();
-      // for (i=1; i<=28; i++) {
-      // MongoDB call: db.reservations.find({room: 102})[0] gives the first instance in the collection with room 102
-      // var res = Reservations.find({room: currentRoom}, { sort: { reservationStart: 1 }}).fetch();
   }
 
 
@@ -239,7 +211,7 @@ Template.makeReservationBox.events({
            // TODO: support 8 total rooms, instead of hard coding room 101 into the database. 
            Meteor.call("insertEvent", eventDescription, reservationStart, reservationEnd, currentRoom);
 		   template.eventFeedbackMsg.set("Event entered successfully");
-		 template.find('.eventFeedback').style.color="#44ff22";
+		 template.find('.eventFeedback').style.color="#00aa00";
 
          }
       }
@@ -253,19 +225,29 @@ Template.upcomingReservations.helpers({
         // TODO: Show events only for the selected room, not events for all rooms.
         var res = Reservations.find({room: currentRoom}, { sort: { reservationStart: 1 }}).fetch();
 
+        for (i=0; i < res.length; i++) {
+          res[i].reservationStart = moment(res[i].reservationStart).format('LLL');
+          res[i].reservationEnd = moment(res[i].reservationEnd).format('LLL');
+        }
+
         if (res.length > 5) {
             return res.slice(0,5);
         }
         else {
             return res;
         }
-    }
+    }//something
 });
 
 Template.upcomingReservations2.helpers({
     reservations : function() {
         // TODO: Show events only for the selected room, not events for all rooms.
         var res = Reservations.find({room: currentRoom}, { sort: { reservationStart: 1 }}).fetch();
+
+                for (i=0; i < res.length; i++) {
+          res[i].reservationStart = moment(res[i].reservationStart).format('LLL');
+          res[i].reservationEnd = moment(res[i].reservationEnd).format('LLL');
+        }
 
         if (res.length > 5) {
             return res.slice(0,5);
@@ -281,6 +263,11 @@ Template.upcomingReservations3.helpers({
         // TODO: Show events only for the selected room, not events for all rooms.
         var res = Reservations.find({room: currentRoom}, { sort: { reservationStart: 1 }}).fetch();
 
+                for (i=0; i < res.length; i++) {
+          res[i].reservationStart = moment(res[i].reservationStart).format('LLL');
+          res[i].reservationEnd = moment(res[i].reservationEnd).format('LLL');
+        }
+
         if (res.length > 5) {
             return res.slice(0,5);
         }
@@ -294,6 +281,11 @@ Template.upcomingReservations4.helpers({
     reservations : function() {
         // TODO: Show events only for the selected room, not events for all rooms.
         var res = Reservations.find({room: currentRoom}, { sort: { reservationStart: 1 }}).fetch();
+
+                for (i=0; i < res.length; i++) {
+          res[i].reservationStart = moment(res[i].reservationStart).format('LLL');
+          res[i].reservationEnd = moment(res[i].reservationEnd).format('LLL');
+        }
 
         if (res.length > 5) {
             return res.slice(0,5);
@@ -309,6 +301,11 @@ Template.upcomingReservations5.helpers({
         // TODO: Show events only for the selected room, not events for all rooms.
         var res = Reservations.find({room: currentRoom}, { sort: { reservationStart: 1 }}).fetch();
 
+                for (i=0; i < res.length; i++) {
+          res[i].reservationStart = moment(res[i].reservationStart).format('LLL');
+          res[i].reservationEnd = moment(res[i].reservationEnd).format('LLL');
+        }
+
         if (res.length > 5) {
             return res.slice(0,5);
         }
@@ -322,6 +319,11 @@ Template.upcomingReservations6.helpers({
     reservations : function() {
         // TODO: Show events only for the selected room, not events for all rooms.
         var res = Reservations.find({room: currentRoom}, { sort: { reservationStart: 1 }}).fetch();
+
+                for (i=0; i < res.length; i++) {
+          res[i].reservationStart = moment(res[i].reservationStart).format('LLL');
+          res[i].reservationEnd = moment(res[i].reservationEnd).format('LLL');
+        }
 
         if (res.length > 5) {
             return res.slice(0,5);
@@ -337,6 +339,11 @@ Template.upcomingReservations7.helpers({
         // TODO: Show events only for the selected room, not events for all rooms.
         var res = Reservations.find({room: currentRoom}, { sort: { reservationStart: 1 }}).fetch();
 
+                for (i=0; i < res.length; i++) {
+          res[i].reservationStart = moment(res[i].reservationStart).format('LLL');
+          res[i].reservationEnd = moment(res[i].reservationEnd).format('LLL');
+        }
+
         if (res.length > 5) {
             return res.slice(0,5);
         }
@@ -350,6 +357,11 @@ Template.upcomingReservations8.helpers({
     reservations : function() {
         // TODO: Show events only for the selected room, not events for all rooms.
         var res = Reservations.find({room: currentRoom}, { sort: { reservationStart: 1 }}).fetch();
+
+                for (i=0; i < res.length; i++) {
+          res[i].reservationStart = moment(res[i].reservationStart).format('LLL');
+          res[i].reservationEnd = moment(res[i].reservationEnd).format('LLL');
+        }
 
         if (res.length > 5) {
             return res.slice(0,5);

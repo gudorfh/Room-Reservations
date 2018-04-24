@@ -1,19 +1,32 @@
 /* CSS declarations go here */
 body {
-	background-color : #999;
+	background-color : #22a;
 }
 
 table, th, td {
     border : 1px solid black;
+    width: 100%; /* Goes 100% of the screen */
+    table-layout: fixed; /* https://stackoverflow.com/questions/10525744/css-table-cell-equal-width */
 }
 
-th {
-	background-color : #000;
-	color: #eee;
+th {/* Table Header */
+	background-color : #eeee00;
+	color: #000;
+}
+
+
+
+tr:nth-child(even) {
+	background-color: #dddddd; /* Every other row in table is different color */
+}
+
+tr:hover {
+	background-color: #f8f8f8; /* Highlights the row when hovered over 
+	https://www.w3schools.com/css/css_table.asp */
 }
 
 table {
-	background-color : #ddd;
+	background-color : #c0c0c0;
 	
 }
 
@@ -21,6 +34,7 @@ hr{ width:100%; height:6px; background-color:#555; border:none;}
 
 .eventFeedback {
 	color: #44f;
+	text-align: center;
 }
 
 .header {
@@ -32,8 +46,14 @@ hr{ width:100%; height:6px; background-color:#555; border:none;}
     margin: auto;
     background: #fafafa;
     padding: 10px;
+    text-align: center;
 }
 
 .reservation {
     padding-left: 50px;
+    background: #ccc;
+}
+
+.login { /* Adjusting the login button */
+	text-align: left;
 }
